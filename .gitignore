@@ -1,2 +1,8 @@
-#the vcs file?
-vcs.xml
+#the .idea directory
+.idea/
+
+#any .xml files
+*.iml
+
+#any .iml files
+*.xml
