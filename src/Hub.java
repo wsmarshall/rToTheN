@@ -1,7 +1,9 @@
 public class Hub {
 
+
     public static void main(String[] args){
-        System.out.println();
+        pw p = new pw();
+        p.rewriteEFFLL();
 
     }
 
