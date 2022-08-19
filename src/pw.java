@@ -1,56 +1,19 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.security.SecureRandom;
-import java.util.Scanner;
 
 //for generating passwords
 public class pw {
+    public static void main(String[] args){
+        final int wordListLength = 7776; //only 7776 words in the list
 
-    public void rewriteEFFLL(){
+        //intialize an array of appropriate length
+        int[] array = new int[wordListLength];
 
-        File file = new File("EFFLongWordList.txt");
-        String path = file.getPath();
+        //TODO load the simple EFFL word list into an array
 
-        try {
-            File myObj = new File ("EFFLongWordListSimplest.txt");
-            if (myObj.createNewFile()){
-                System.out.println("File successfully created: " + myObj.getName());
-            } else {
-                System.out.println("File already exists?!");
-            }
-        } catch (IOException e) {
-            System.out.println("An error occurred: ");
-            e.printStackTrace();
-        }
-
-        try {
-            int[] array = new int[7776]; //for holding all long words
-            int parityMarker = 0;
-            Scanner sc = new Scanner(file);
-            System.out.println("Scanner is using delimiter: " + sc.delimiter());
-
-            try {
-                FileWriter fw = new FileWriter(file);
-
-                while(sc.hasNext()){
-                    parityMarker++;
-                    if (parityMarker % 2 == 0){
-                        fw.append(sc.next());
-                    }
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-        } catch (FileNotFoundException e){
-            e.printStackTrace();
-        }
     }
 
-    public int[] randNums (int input) {
-        int[] array = new int[0];
+    public static int[] randNums (int input) {
+        int[] array = new int[input];
 
         SecureRandom random = new SecureRandom();
 
