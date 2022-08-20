@@ -1,15 +1,38 @@
+import java.io.*;
 import java.security.SecureRandom;
 
 //for generating passwords
 public class pw {
-    public static void main(String[] args){
-        final int wordListLength = 7776; //only 7776 words in the list
+    public static String[] loadArray() {
+//        System.out.println(new File(".").getAbsolutePath());
 
-        //intialize an array of appropriate length
-        int[] array = new int[wordListLength];
+        final int wordListLength = (7776); //only 7776 words in the list
+        //want to start list with 1 for random number generation
 
-        //TODO load the simple EFFL word list into an array
+        //initialize an array of appropriate length
+        String[] array = new String[wordListLength];
 
+        try {//read in the long word list
+            FileReader file = new FileReader("SimplestEFFLongWordList.txt");
+            BufferedReader reader = new BufferedReader(file);
+
+            //load the words into an array
+            for(int i = 0; i < wordListLength; i++){
+                try {
+                    array[i] = reader.readLine();
+                } catch (IOException e){
+                    e.printStackTrace();
+                }
+            }
+        } catch (FileNotFoundException e){
+            e.printStackTrace();
+        }
+
+        System.out.println("Array is currently: " + array.length + " in length");
+        System.out.println("1st entry should be abacus, is: " + array[0]);
+        System.out.println("last entry should be zoom, is: " + array[7775]);
+
+        return array;
     }
 
     public static int[] randNums (int input) {
