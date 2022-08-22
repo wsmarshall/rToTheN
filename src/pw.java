@@ -7,7 +7,6 @@ public class pw {
 //        System.out.println(new File(".").getAbsolutePath());
 
         final int wordListLength = (7776); //only 7776 words in the list
-        //want to start list with 1 for random number generation
 
         //initialize an array of appropriate length
         String[] array = new String[wordListLength];
@@ -38,12 +37,16 @@ public class pw {
     public static int[] randNums (int input) {
         int[] array = new int[input];
 
+        //cryptographically strong RNG
         SecureRandom random = new SecureRandom();
 
         if (input > 0){
-            //TODO: use random to generate random numbers
-            //then use java file IO to get random entries from EFF long word list
+            for(int i = 0; i < input; i++){
+                //next random int from 0 to 7775
+                array[i] = random.nextInt(7775);
+            }
         } else {
+            //TODO default argument to 0?
             array[0] = -1;
         }
         return array;
