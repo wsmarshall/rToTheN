@@ -1,11 +1,13 @@
+package src;
+
 public class Hub {
 
 
     public static void main(String[] args){
-        pw p = new pw();
-        //TODO access pw by class ref instead of instance ref?
-        String[] wordArray = p.loadArray();
-        int[] randArray = p.randNums(1);
+        String[] wordArray = pw.loadArray();
+        int[] randArray = pw.randNums(1);
+        System.out.println(randArray[0]);
+        System.out.println(wordArray[randArray[0]]);
     }
 
 }
