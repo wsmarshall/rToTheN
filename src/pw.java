@@ -35,7 +35,12 @@ public class pw {
     }
 
     public static int[] randNums (int input) {
-        int[] array = new int[input];
+        int[] array;
+        if(input > 0) {
+            array = new int[input];
+        } else {
+            array = new int[1];
+        }
 
         //cryptographically strong RNG
         SecureRandom random = new SecureRandom();
