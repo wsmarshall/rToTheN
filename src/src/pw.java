@@ -36,25 +36,16 @@ public class pw {
         return array;
     }
 
-    public static int[] randNums (int input) {
-        int[] array;
-        if(input > 0) {
-            array = new int[input];
-        } else {
-            array = new int[1];
-        }
+    public static int[] randNums (int input) {//GUI intended to not allow <0 input
+        int[] array = new int[input];
 
         //cryptographically strong RNG
         SecureRandom random = new SecureRandom();
 
-        if (input > 0){
-            for(int i = 0; i < input; i++){
-                //next random int from 0 to 7775
-                array[i] = random.nextInt(7775);
-            }
-        } else {
-            //TODO default argument to 0?
-            array[0] = -1;
+
+        for(int i = 0; i < input; i++){
+            //next random int from 0 to 7775
+            array[i] = random.nextInt(7775);
         }
         return array;
 
